@@ -1,0 +1,61 @@
+.label {
+    position: absolute;
+    left: 7px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(0,0,0,0.8);
+    padding: 0px 5px;
+    font-size: 16px;
+    cursor: pointer;
+    opacity: 0.9;
+    transition: 0.15s all;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -webkit-transition: 0.15s all;
+    -moz-transition: 0.15s all;
+    -ms-transition: 0.15s all;
+    -o-transition: 0.15s all;
+}
+
+.label.active {
+    background-color: #f5f5ff;
+    color: rgb(0,0,0);
+    font-size: 15px;
+    z-index: 100;
+    opacity: 1;
+    top: 0px;
+}
+
+.input {
+    border: 1px solid rgba(0, 0,0, 0.13);
+    border-radius: 5px;
+    padding: 10px 10px;
+    font-size: 17px;
+    width: 100%;
+    transition: 0.15s all;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    -webkit-transition: 0.15s all;
+    -moz-transition: 0.15s all;
+    -ms-transition: 0.15s all;
+    -o-transition: 0.15s all;
+}
+
+.input:focus {
+    border-color: #0d6efd !important;
+    outline: none;
+}
+
+@media only screen and (max-width: 768px){
+    .label{
+        font-size: 14px;
+    }
+
+    .label.active{
+        font-size: 13px;
+    }
+}

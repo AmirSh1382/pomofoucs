@@ -16,7 +16,7 @@ const timerReducer = (state = initialState, action) => {
   const { type, payload } = action
 
   switch (type) {
-    case "SET_NEW_CONFIGS":
+    case "SET_NEW_TIMER_CONFIGS":
       return {
         ...state,
         fullTime: payload,

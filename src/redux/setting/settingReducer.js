@@ -1,5 +1,5 @@
 // Functions
-import { getSettingFromLocalStorage } from "../../helper/fucntions"
+import { getSettingFromLocalStorage, setSettingToLocalStorage } from "../../helper/fucntions"
 
 const initialState = {
     isThereLocalSetting: false,
@@ -16,10 +16,14 @@ const settingReducer = (state = initialState, action) => {
             }
 
         case "SET_NEW_SETTING":
-            return {
+            const setting = {
                 ...state,
-                pomodoro: action.payload
+                pomodoro: action.payload.pomodoro,
+                shortBreak: action.payload.shortBreak,
+                longBreak: action.payload.longBreak
             }
+            setSettingToLocalStorage(setting)
+            return {...setting}
 
         default:
             return state

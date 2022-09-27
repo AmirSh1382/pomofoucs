@@ -1,11 +1,18 @@
-import React from 'react';
+import React from "react";
+
+// Componetns
+import Setting from "./Setting";
 
 const Header = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+  return (
+    <header className="flex justify-between items-center">
+      <div className="text-xl sm:text-2xl font-semibold">PomoFocus</div>
+
+      <nav className="flex">
+        <Setting />
+      </nav>
+    </header>
+  );
 };
 
 export default Header;

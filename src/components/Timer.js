@@ -67,7 +67,7 @@ const Timer = () => {
   console.log(timerState)
 
   return (
-    <div className="max-w-xl mx-auto mt-5 ">
+    <div>
 
       <div className="relative h-1 bg-stone-200">
         <div 
