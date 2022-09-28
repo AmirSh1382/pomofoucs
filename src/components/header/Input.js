@@ -3,7 +3,7 @@ import React, { useState } from "react";
 // Styles
 import styles from "./Input.module.css"
 
-const Input = ({ setState, value, label }) => {
+const Input = ({ setValue, value, label }) => {
 
   const [ isActive, setIsActive ] = useState(true);
 
@@ -22,7 +22,7 @@ const Input = ({ setState, value, label }) => {
           type="text"
           value={value}
           className={`${styles.input}`}
-          onChange={e => setState(e.target.value)}
+          onChange={e => setValue(e.target.value)}
           onFocus={() => setIsActive(true)}
           onBlur={() => !value && setIsActive(false)}
           />

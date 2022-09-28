@@ -2,6 +2,7 @@
 import { timeLinePercentageCalculator } from "../../helper/fucntions";
 
 const initialState = {
+  activeTimer: "pomodoro",
   isTimerFinished: false,
   isStarted: false,
   fullTime: 0,
@@ -19,22 +20,21 @@ const timerReducer = (state = initialState, action) => {
     case "SET_NEW_TIMER_CONFIGS":
       return {
         ...state,
-        fullTime: payload,
-        currentTime: payload,
+        isStarted: false,
+        activeTimer: payload.name,
+        fullTime: payload.time,
+        currentTime: payload.time,
         timeLinePercentage: "0%",
       };
 
-      
     case "START_TIMER":
       // To avoid reseting the timer if the timer is'nt finished yet
       const time = isTimerFinished ? fullTime : currentTime
-      
       return {
         ...state,
         isStarted: true,
         currentTime: time,
         isTimerFinished: false,
-        timeLinePercentage: "0%"
       };
 
     case "STOP_TIMER":

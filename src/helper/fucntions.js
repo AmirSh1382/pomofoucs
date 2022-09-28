@@ -5,7 +5,7 @@ const clockFormatGenerator = time => {
   if (minute < 10) minute = "0" + minute;
   if (second < 10) second = "0" + second;
 
-  const finallFormat = `${minute} : ${second}`;
+  const finallFormat = `${minute}:${second}`;
 
   return finallFormat;
 };
