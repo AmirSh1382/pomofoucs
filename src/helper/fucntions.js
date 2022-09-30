@@ -10,16 +10,16 @@ const clockFormatGenerator = time => {
   return finallFormat;
 };
 
-const getSettingFromLocalStorage = state => {
+const getSettingFromLocalStorage = setting => {
   const localSetting = JSON.parse(localStorage.getItem("setting"));
 
-  return localSetting ? { ...localSetting, isThereLocalSetting: true } : state;
+  return localSetting ? { ...localSetting, isThereLocalSetting: true } : setting;
 };
 
-const setSettingToLocalStorage = state => {
-  localStorage.setItem("setting", JSON.stringify(state))
+const setSettingToLocalStorage = setting => {
+  localStorage.setItem("setting", JSON.stringify(setting))
 
-  return state
+  return setting
 }
 
 const timeLinePercentageCalculator = (fullTime, currentTime) => {
@@ -39,11 +39,11 @@ const minuteToSecond = time => {
 const inputValidation = (pomodoro, shortBreak, longBreak) => {
   let error = false;
 
-  if (isNaN(pomodoro) || pomodoro > 60 || pomodoro <= 0) {
+  if (isNaN(pomodoro) || pomodoro > 60 || pomodoro < 1) {
     error = true;
-  } else if (isNaN(shortBreak) || shortBreak > 60 || shortBreak <= 0) {
+  } else if (isNaN(shortBreak) || shortBreak > 60 || shortBreak < 1) {
     error = true;
-  } else if (isNaN(longBreak) || longBreak > 60 || longBreak <= 0) {
+  } else if (isNaN(longBreak) || longBreak > 60 || longBreak < 1) {
     error = true;
   }
 

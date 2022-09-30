@@ -7,18 +7,18 @@ import Timer from "./timer/Timer";
 
 // Redux
 import { useDispatch, useSelector } from "react-redux";
-import { setNewTimerConfigs } from "../redux/timer/timerActions";
+import { setNewTimerConfigs, getSettingFromLocalStorage } from "../redux/timer/timerAction";
 
 const Landing = () => {
   const dispatch = useDispatch();
 
   const timerState = useSelector(state => state.timerState)
 
-  const { activeTimer } = timerState
+  const { setting, time } = timerState
 
-  const settingState = useSelector(state => state.settingState);
+  const { activeTimer } = time
 
-  const { pomodoro, isThereLocalSetting } = settingState;
+  const { pomodoro, isThereLocalSetting } = setting
 
   const [ minHeight, setMinHeight ] = useState(visualViewport.height + "px");
 
@@ -27,8 +27,7 @@ const Landing = () => {
   });
 
   useEffect(() => {
-    dispatch({type: "GET_SETTING_FROM_LOCAL_STORAGE"});
-
+    dispatch(getSettingFromLocalStorage());
     dispatch(setNewTimerConfigs(pomodoro, "pomodoro"));
 
     // eslint-disable-next-line

@@ -12,7 +12,7 @@ const TimeLine = () => {
       className="relative rounded bg-time-line w-full mt-4"
     >
       <div
-        style={{ width: timerState.timeLinePercentage }}
+        style={{ width: timerState.time.timeLinePercentage }}
         className=" absolute left-0 top-1/2 h-1 bg-white rounded -translate-y-1/2 transition"
       ></div>
     </div>

@@ -1,22 +1,23 @@
 .btnContainer {
+    height: 55px;
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    height: 55px;
 }
 
 .button {
     width: 40%;
     height: 100%;
     margin: 0 auto;
+    font-size: 25px;
+    font-weight: 600;
     position: relative;
     border-radius: 8px;
+    background-color: #f5f5f5;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: 0.5s color;
-    font-size: 25px;
-    font-weight: 600;
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     -ms-border-radius: 8px;

@@ -21,6 +21,12 @@ module.exports = {
         "shortBreak": "rgb(76, 145, 149)",
         "longBreak": "rgb(69, 124, 163)",
       },
+      fontSize: {
+        "header": "20px"
+      },
+      padding: {
+        "small": "2px"
+      }
     },
   },
   plugins: [],

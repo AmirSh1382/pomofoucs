@@ -25,7 +25,7 @@ const Input = ({ setValue, value, label }) => {
           onChange={e => setValue(e.target.value)}
           onFocus={() => setIsActive(true)}
           onBlur={() => !value && setIsActive(false)}
-          />
+        />
       </div>
     </div>
   );
