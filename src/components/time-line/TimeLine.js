@@ -4,7 +4,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 const TimeLine = () => {
-  const timerState = useSelector(state => state.timerState);
+  const timeLinePercentage = useSelector(state => state.timerState.time.timeLinePercentage);
 
   return (
     <div
@@ -12,7 +12,7 @@ const TimeLine = () => {
       className="relative rounded bg-time-line w-full mt-4"
     >
       <div
-        style={{ width: timerState.time.timeLinePercentage }}
+        style={{ width: timeLinePercentage, transition: "0.2s all" }}
         className=" absolute left-0 top-1/2 h-1 bg-white rounded -translate-y-1/2 transition"
       ></div>
     </div>

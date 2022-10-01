@@ -19,9 +19,8 @@ const Header = () => {
             ${activeTimer === "pomodoro" && "text-pomodoro"}
             ${activeTimer === "shortBreak" && "text-shortBreak"}
             ${activeTimer === "longBreak" && "text-longBreak"}
-            text-header bg-white rounded-full text-center
-            fa-solid fa-check mr-1 p-small
-          `}
+            text-header bg-white rounded-full text-center fa-solid fa-check mr-1 p-small`
+          }
         >  
         </i>
         <span className="text-header font-semibold">

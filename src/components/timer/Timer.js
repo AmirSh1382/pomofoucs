@@ -30,11 +30,9 @@ const Timer = () => {
   const dispatch = useDispatch();
 
   const timerState = useSelector(state => state.timerState)
-
   const { setting, time } = timerState
 
   const { pomodoro, shortBreak, longBreak, alarmAudio, darkMode } = setting;
-
   const { isStarted, currentTime, activeTimer } = time;
 
   // Audios Ref
@@ -49,7 +47,7 @@ const Timer = () => {
       alarmAudio === "rock" ? rockAlarm :
       alarmAudio === "idea" ? ideaAlarm :
       alarmAudio === "ding" ? dingAlarm :
-      alarmAudio === "deepThought" && deepThoughtAlarm
+      alarmAudio === "deepThought" ? deepThoughtAlarm : ''
 
   let interval = null;
 

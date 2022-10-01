@@ -21,7 +21,7 @@ const Setting = () => {
 
   const [ isSettingOpen, setIsSettingOpen ] = useState(false);
 
-  const [ pomoFocusValue, setPomoFocusValue ] = useState(0);
+  const [ pomodoroValue, setPomodoroValue ] = useState(0);
   const [ shortBreakValue, setShortBreakValue ] = useState(0);
   const [ longBreakValue, setLongBreakValue ] = useState(0);
   const [ alarmSelectValue, setAlarmSelectValue ] = useState("")
@@ -30,7 +30,7 @@ const Setting = () => {
   const [ error, setError ] = useState();
 
   useEffect(() => {
-    setPomoFocusValue(secondToMinute(pomodoro))
+    setPomodoroValue(secondToMinute(pomodoro))
     setShortBreakValue(secondToMinute(shortBreak))
     setLongBreakValue(secondToMinute(longBreak))
     setAlarmSelectValue(alarmAudio)
@@ -42,7 +42,7 @@ const Setting = () => {
 
     setError("");
 
-    setPomoFocusValue(secondToMinute(pomodoro));
+    setPomodoroValue(secondToMinute(pomodoro));
     setShortBreakValue(secondToMinute(shortBreak));
     setLongBreakValue(secondToMinute(longBreak));
     setAlarmSelectValue(alarmAudio)
@@ -57,7 +57,7 @@ const Setting = () => {
     }
 
     if (confirmation) {
-      if (inputValidation(pomoFocusValue, shortBreakValue, longBreakValue)) {
+      if (inputValidation(pomodoroValue, shortBreakValue, longBreakValue)) {
         setError("Wrong Value!");
       } else {
         document.documentElement.classList.remove("dark")
@@ -68,7 +68,7 @@ const Setting = () => {
         setTimeout(() => {
           setError("");
           setIsSettingOpen(false);
-          dispatch(setNewSetting(pomoFocusValue, shortBreakValue, longBreakValue, alarmSelectValue, darkModeValue));
+          dispatch(setNewSetting(pomodoroValue, shortBreakValue, longBreakValue, alarmSelectValue, darkModeValue));
         }, 10)
       }
     }
@@ -80,7 +80,7 @@ const Setting = () => {
         onClick={() => setIsSettingOpen(true)}
         className="bg-primary rounded transition active:translate-y-1 px-2 py-1"
       >
-        <i className="fa-solid fa-gear mr-1"></i>
+        <i className="fa-solid fa-gear sm:mr-1"></i>
         <span className="hidden sm:inline">Setting</span>
       </button>
 
@@ -106,7 +106,7 @@ const Setting = () => {
               time (1-60 min)
             </span>
             <div className="flex gap-x-5 mt-6">
-              <Input label="Pomodoro" value={pomoFocusValue} setValue={setPomoFocusValue} />
+              <Input label="Pomodoro" value={pomodoroValue} setValue={setPomodoroValue} />
               <Input label="Short Break" value={shortBreakValue} setValue={setShortBreakValue} />
               <Input label="Long Break" value={longBreakValue} setValue={setLongBreakValue} />
             </div>
@@ -115,6 +115,7 @@ const Setting = () => {
             </div>
           </div>
 
+          {/* Alarm sound */}
           <div className="flex items-center justify-between py-4">
             <div className="font-semibold text-lg">
               Alarm Sound
@@ -129,7 +130,7 @@ const Setting = () => {
                 leading-tight focus:outline-none focus:shadow-outline"
               >
                 <option value="crystal">Crystal</option>
-                <option value="testtelepathy">telepathy</option>
+                <option value="telepathy">telepathy</option>
                 <option value="rock">rock</option>
                 <option value="idea">idea</option>
                 <option value="ding">ding</option>
@@ -143,6 +144,7 @@ const Setting = () => {
             </div>
           </div>
 
+          {/* Dark mode */}
           <div className="flex items-center justify-between py-4">
             <div className="font-semibold text-lg">
               Dark mode when running
@@ -162,6 +164,7 @@ const Setting = () => {
             </label>
           </div>
 
+          {/* Save button */}
           <div className="flex justify-end pt-3 px-2">
             <button
               onClick={validateInputs}

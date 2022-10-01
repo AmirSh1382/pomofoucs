@@ -27,6 +27,7 @@ const timerReducer = (state = initialState, action) => {
   const { isTimerFinished, fullTime, currentTime, timeLinePercentage } = state.time;
 
   switch (type) {
+    // To set timer initial configs based on the payload
     case "SET_NEW_TIMER_CONFIGS":
       document.title = `${clockFormatGenerator(payload.time)}-Time to focus!`
       return {
@@ -44,6 +45,7 @@ const timerReducer = (state = initialState, action) => {
         },
       };
 
+    // To start the timer 
     case "START_TIMER":
       // To avoid reseting the timer if the timer is'nt finished yet
       const time = isTimerFinished ? fullTime : currentTime;
@@ -61,6 +63,7 @@ const timerReducer = (state = initialState, action) => {
         },
       };
 
+    // Stop the timer from running
     case "STOP_TIMER":
       return {
         setting: {
@@ -72,6 +75,7 @@ const timerReducer = (state = initialState, action) => {
         },
       };
 
+    // To update current timer time based on the payload
     case "UPDATE_CURRENT_TIME":
       document.title = `${clockFormatGenerator(payload)}-Time to focus!`
       return {
@@ -98,6 +102,7 @@ const timerReducer = (state = initialState, action) => {
         },
       };
 
+    // to get setting from local storage
     case "GET_SETTING_FROM_LOCAL_STORAGE":
       return {
         setting: {
@@ -107,7 +112,8 @@ const timerReducer = (state = initialState, action) => {
           ...state.time,
         },
       };
-
+      
+    // to set new settiing configs based on the payload info
     case "SET_NEW_SETTING":
       const timerSetting = {
         ...state.setting,
