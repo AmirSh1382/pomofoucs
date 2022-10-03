@@ -21,7 +21,7 @@ const TaskBody = () => {
           <input 
             type="text" 
             placeholder="What are you working on?"
-            className="focus:outline-none text-xl placeholder:italic placeholder:opacity-75 mt-8" 
+            className="focus:outline-none bg-white w-full text-xl placeholder:italic mt-8" 
           />
           <div className="mt-6">
             <div>Task time: (optional)</div>
@@ -48,8 +48,7 @@ const TaskBody = () => {
               ${activeTimer === "pomodoro" && "border-pomodoro text-pomodoro"}
               ${activeTimer === "shortBreak" && "border-shortBreak text-shortBreak"}
               ${activeTimer === "longBreak" && "border-longBreak text-longBreak"}
-              border rounded-md transition-colors duration-500
-              active:translate-y-1 px-2 py-1`
+              border rounded-md transition-colors duration-500 px-2 py-1`
             }
           >
             Cancel
@@ -59,8 +58,7 @@ const TaskBody = () => {
               ${activeTimer === "pomodoro" && "bg-pomodoro"}
               ${activeTimer === "shortBreak" && "bg-shortBreak"}
               ${activeTimer === "longBreak" && "bg-longBreak"}
-              border text-white rounded-md transition-colors duration-500
-              active:translate-y-1 py-1 px-2`
+              border text-white rounded-md transition-colors duration-500 py-1 px-2`
             }
           >
             Save
