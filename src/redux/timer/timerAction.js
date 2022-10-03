@@ -13,9 +13,9 @@ const setNewSetting = (pomodoro, shortBreak, longBreak, alarmAudio, darkMode) =>
   return {
     type: "SET_NEW_SETTING",
     payload: {
-      pomodoro: minuteToSecond(pomodoro),
-      shortBreak: minuteToSecond(shortBreak),
-      longBreak: minuteToSecond(longBreak),
+      pomodoro: minuteToSecond(Math.floor(pomodoro)),
+      shortBreak: minuteToSecond(Math.floor(shortBreak)),
+      longBreak: minuteToSecond(Math.floor(longBreak)),
       alarmAudio,
       darkMode
     },
