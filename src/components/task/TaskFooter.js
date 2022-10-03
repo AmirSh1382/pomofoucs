@@ -18,13 +18,25 @@ const TaskFooter = () => {
 }, []);
 
   return (
-    <div className="flex items-center justify-center pb-10">
-      <div>
-        <div></div>
-        <div></div>
-      </div>
-      <div>
-        {clockFormatGenerator(time)}
+    <div className="border-t dark:hidden pb-10">
+      <div className="flex items-center justify-between bg-primary rounded-b-lg p-3">
+        <div>
+          <div>
+            <span className="text-primary">Task</span>
+            &nbsp;
+            <span>0</span>
+          </div>
+
+          <div className="mt-2">
+            <span className="text-primary">Finished</span>
+            &nbsp;
+            <span>0</span>
+          </div>
+        </div>
+
+        <div className="text-3xl">
+          {clockFormatGenerator(time)}
+        </div>
       </div>
     </div>
   );

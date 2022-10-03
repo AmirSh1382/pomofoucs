@@ -22,7 +22,8 @@ module.exports = {
         "pomodoro": "rgb(217, 85, 80)",
         "shortBreak": "rgb(76, 145, 149)",
         "longBreak": "rgb(69, 124, 163)",
-        "add-btn": "rgba(256,256,256,0.7)"
+        "add-btn": "rgba(256,256,256,0.7)",
+        "primary": "rgba(255, 255, 255, 0.7)"
       },
       fontSize: {
         "header": "20px"
@@ -31,7 +32,10 @@ module.exports = {
         "small": "2px"
       },
       borderColor: {
-        "add-btn": "rgba(255, 255, 255, 0.4)"
+        "add-btn": "rgba(255, 255, 255, 0.4)",
+        "pomodoro": "rgb(217, 85, 80)",
+        "shortBreak": "rgb(76, 145, 149)",
+        "longBreak": "rgb(69, 124, 163)",
       }
     },
   },

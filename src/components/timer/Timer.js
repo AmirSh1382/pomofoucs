@@ -49,12 +49,23 @@ const Timer = () => {
       alarmAudio === "ding" ? dingAlarm :
       alarmAudio === "deepThought" ? deepThoughtAlarm : ''
 
-  let interval = null;
-
+  // Timer interval
   useEffect(() => {
-    dispatch(setNewTimerConfigs(pomodoro, "pomodoro"))
+    if (isStarted) {
+      const interval = setInterval(() => {
+        if (currentTime > 0) {
+          dispatch(updateCurrentTime(currentTime - 1));
+        } else {
+          dispatch(timerFinish())
+          alarmAudioRef.current.play()
+          document.documentElement.classList.remove("dark")
+        };  
+      }, 1000);
+      return () => clearInterval(interval);
+    }
+
     // eslint-disable-next-line
-  } , [pomodoro, shortBreak, longBreak])
+  } , [isStarted, currentTime])
 
   const startTimer = () => {
     dispatch(startTimerAction());
@@ -64,7 +75,6 @@ const Timer = () => {
   
   const stopTimer = () => {
     dispatch(stopTimerAction());
-    clearInterval(interval);
     stopAudioRef.current.play()
     document.documentElement.classList.remove("dark")
   };
@@ -82,20 +92,6 @@ const Timer = () => {
     }
   };
   
-  if (isStarted) {
-    interval = setInterval(() => {
-      if (currentTime > 0) {
-        dispatch(updateCurrentTime(currentTime - 1));
-      } else {
-        dispatch(timerFinish())
-        alarmAudioRef.current.play()
-        document.documentElement.classList.remove("dark")
-      };
-
-      clearInterval(interval)
-    }, 1000);
-  }
-
   return (
     <>
       {/* Auidos */}

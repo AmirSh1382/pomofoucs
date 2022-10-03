@@ -8,7 +8,7 @@ import { secondToMinute, inputValidation } from "../../helper/fucntions";
 
 // Redux
 import { useDispatch, useSelector } from "react-redux";
-import { setNewSetting, stopTimerAction } from "../../redux/timer/timerAction";
+import { setNewSetting } from "../../redux/timer/timerAction";
 
 const Setting = () => {
   const dispatch = useDispatch();
@@ -62,14 +62,9 @@ const Setting = () => {
       } else {
         document.documentElement.classList.remove("dark")
 
-        dispatch(stopTimerAction())
-
-        // due to async process
-        setTimeout(() => {
-          setError("");
-          setIsSettingOpen(false);
-          dispatch(setNewSetting(pomodoroValue, shortBreakValue, longBreakValue, alarmSelectValue, darkModeValue));
-        }, 10)
+        setError("");
+        setIsSettingOpen(false);
+        dispatch(setNewSetting(pomodoroValue, shortBreakValue, longBreakValue, alarmSelectValue, darkModeValue));
       }
     }
   };
@@ -89,14 +84,14 @@ const Setting = () => {
         className={`${isSettingOpen ? "backdrop-blur-sm -translate-y-0" : "-translate-y-full"}
           fixed top-0 left-0 w-full min-h-full flex items-center justify-center transition duration-500 z-10`}
       >
-        <div className="rounded-md bg-white text-black w-full max-w-md divide-y px-5 py-4 m-3">
+        <div className="rounded-md bg-white text-black shadow-lg w-full max-w-md divide-y px-5 py-4 m-3">
           {/* Setting header */}
           <div className="flex justify-between items-center mb-4">
             <div className="text-muted text-lg">
               Timer Setting
             </div>
             <div onClick={resetSettingForm} className="cursor-pointer">
-              <i className="fa-solid fa-xmark text-2xl opacity-60 hover:opacity-100"></i>
+              <i className="bi bi-x-lg text-xl opacity-60 hover:opacity-100"></i>
             </div>
           </div>
 
