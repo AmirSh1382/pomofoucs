@@ -4,6 +4,9 @@ import React, { useEffect, useState } from "react";
 import Header from "./header/Header";
 import TimeLine from "./time-line/TimeLine";
 import Timer from "./timer/Timer";
+import TaskHeader from "./task/TaskHeader";
+import TaskBody from "./task/TaskBody";
+import TaskFooter from "./task/TaskFooter";
 
 // Redux
 import { useDispatch, useSelector } from "react-redux";
@@ -43,10 +46,19 @@ const Landing = () => {
         dark:bg-dark transition duration-500`
       }
     >
-      <div className="text-white max-w-2xl mx-auto px-6 pt-4 mb-2">
+      <div className="text-white max-w-2xl mx-auto px-6 pt-4">
         <Header />
-        <TimeLine />
-        <Timer />
+        {/* Timer */}
+        <div>
+          <TimeLine />
+          <Timer />
+        </div>
+        {/* Task */}
+        <div className="max-w-lg mx-auto px-3">
+          <TaskHeader />
+          <TaskBody />
+          <TaskFooter />
+        </div>
       </div>
     </div>
   );

@@ -80,7 +80,7 @@ const Setting = () => {
         onClick={() => setIsSettingOpen(true)}
         className="bg-primary rounded transition active:translate-y-1 px-2 py-1"
       >
-        <i className="fa-solid fa-gear sm:mr-1"></i>
+        <i className="bi bi-gear sm:mr-1"></i>
         <span className="hidden sm:inline">Setting</span>
       </button>
 

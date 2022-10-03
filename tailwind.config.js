@@ -12,7 +12,9 @@ module.exports = {
         "dark": "rgb(0,0,0)",
         "white": "#f7f7f7",
         "time-line": "rgba(0,0,0,0.15)",
-        "active-timer": "rgba(0,0,0,0.15)"
+        "active-timer": "rgba(0,0,0,0.15)",
+        "add-btn": "rgba(0,0,0,0.1)",
+        "add-btn-hover": "rgba(0,0,0,0.18)"
       },
       colors: {
         "white": "#f5f5f5",
@@ -20,12 +22,16 @@ module.exports = {
         "pomodoro": "rgb(217, 85, 80)",
         "shortBreak": "rgb(76, 145, 149)",
         "longBreak": "rgb(69, 124, 163)",
+        "add-btn": "rgba(256,256,256,0.7)"
       },
       fontSize: {
         "header": "20px"
       },
       padding: {
         "small": "2px"
+      },
+      borderColor: {
+        "add-btn": "rgba(255, 255, 255, 0.4)"
       }
     },
   },
