@@ -117,9 +117,9 @@ const timerReducer = (state = initialState, action) => {
     case "SET_NEW_SETTING":
       const timerSetting = {
         ...state.setting,
-        pomodoro: action.payload.pomodoro.toFixed(1),
-        shortBreak: action.payload.shortBreak.toFixed(1),
-        longBreak: action.payload.longBreak.toFixed(1),
+        pomodoro: Math.floor(action.payload.pomodoro),
+        shortBreak: Math.floor(action.payload.shortBreak),
+        longBreak: Math.floor(action.payload.longBreak),
         alarmAudio: action.payload.alarmAudio,
         darkMode: action.payload.darkMode
       };
@@ -132,8 +132,8 @@ const timerReducer = (state = initialState, action) => {
           activeTimer: "pomodoro",
           isTimerFinished: false,
           isStarted: false,
-          fullTime: action.payload.pomodoro.toFixed(1),
-          currentTime: action.payload.pomodoro.toFixed(1),
+          fullTime: Math.floor(action.payload.pomodoro),
+          currentTime: Math.floor(action.payload.pomodoro),
           timeLinePercentage: 0,
         },
       };
