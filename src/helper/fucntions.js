@@ -57,6 +57,83 @@ const inputValidation = (pomodoro, shortBreak, longBreak) => {
   return error;
 };
 
+const setTaskStateInToLocalStorage = taskState => {
+  localStorage.setItem("tasks", JSON.stringify(taskState))
+
+  return taskState
+}
+
+const getTaskStateFromLocalStorage = taskState => {
+  const localTasks = JSON.parse(localStorage.getItem("tasks"))
+
+  return localTasks ? localTasks : taskState
+}
+
+const setTaskActive = (state, id) => {  
+  let tasks = state.tasks.map(task => {
+    task.selected = false;
+    if (task.id  === id) task.selected = true
+    return task
+  })
+
+  setTaskStateInToLocalStorage({ ...state, tasks })
+
+  return { ...state, tasks }
+}
+
+const detectSelectedTask = tasks => {
+  let selectedTask = tasks.find(task => task.selected)
+
+  let mainTitle = selectedTask ? selectedTask.title : "Time to focus!"
+
+  return mainTitle
+}
+
+const changeFinishedStatus = (state, id) => {
+  let tasks = state.tasks.map(task => {
+    if (task.id === id) task.finished = !task.finished;
+    return task
+  })
+
+  setTaskStateInToLocalStorage({ ...state, tasks })
+
+  return { ...state, tasks }
+}
+
+const checkAllTasks = state => {
+  state.tasks.forEach(task => task.finished = true)
+
+  setTaskStateInToLocalStorage({ ...state })
+
+  return { ...state }
+}
+
+const clearFinishedTasks = state => {
+  let tasks = state.tasks.filter(task => !task.finished)
+
+  setTaskStateInToLocalStorage({ ...state, tasks })
+
+  return { ...state, tasks }
+}
+
+const clearAllTasks = state => {
+  state.tasks = []
+
+  setTaskStateInToLocalStorage({ ...state })
+
+  return { ...state }
+}
+
+const calculateFinishedTasks = tasks => {
+  const finishedTasks = tasks.filter(task => task.finished)
+
+  return finishedTasks.length
+}
+
 export { getSettingFromLocalStorage, setSettingToLocalStorage }
 export { timeLinePercentageCalculator ,clockFormatGenerator };
 export { secondToMinute, minuteToSecond, inputValidation };
+export { setTaskStateInToLocalStorage, getTaskStateFromLocalStorage }
+export { setTaskActive, detectSelectedTask, changeFinishedStatus }
+export { checkAllTasks, clearFinishedTasks, clearAllTasks }
+export { calculateFinishedTasks }

@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from "react";
 
+// Redux
+import { useSelector } from "react-redux";
+
 // Functions
-import { clockFormatGenerator } from "../../helper/fucntions";
+import { clockFormatGenerator, calculateFinishedTasks } from "../../helper/fucntions";
 
 const TaskFooter = () => {
+  const taskState = useSelector(state => state.taskState)
+
   const now = new Date();
 
   const [ time, setTime  ] = useState(now.getHours() * 60 + now.getMinutes());
@@ -22,15 +27,21 @@ const TaskFooter = () => {
       <div className="flex items-center justify-between bg-primary rounded-b-lg p-3">
         <div>
           <div>
-            <span className="text-primary">Task</span>
+            <span className="text-primary">
+              Task
+            </span>
             &nbsp;
-            <span>0</span>
+            <span>
+              {taskState.tasks.length}
+            </span>
           </div>
 
           <div className="mt-2">
             <span className="text-primary">Finished</span>
             &nbsp;
-            <span>0</span>
+            <span>
+              {calculateFinishedTasks(taskState.tasks)}
+            </span>
           </div>
         </div>
 

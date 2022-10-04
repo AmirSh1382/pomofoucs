@@ -33,9 +33,6 @@ module.exports = {
       },
       borderColor: {
         "add-btn": "rgba(255, 255, 255, 0.4)",
-        "pomodoro": "rgb(217, 85, 80)",
-        "shortBreak": "rgb(76, 145, 149)",
-        "longBreak": "rgb(69, 124, 163)",
       }
     },
   },
