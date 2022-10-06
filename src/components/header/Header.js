@@ -2,6 +2,7 @@ import React from "react";
 
 // Componetns
 import Setting from "./Setting";
+import Info from "./Info";
 
 const Header = () => {
   return (
@@ -14,7 +15,8 @@ const Header = () => {
         </span>
       </div>
 
-      <nav className="flex items-center">
+      <nav className="flex items-center gap-x-2">
+        <Info />
         <Setting />
       </nav>
     </header>
