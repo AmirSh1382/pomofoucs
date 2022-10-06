@@ -7,6 +7,7 @@ import Timer from "./timer/Timer";
 import TaskHeader from "./task/TaskHeader";
 import TaskBody from "./task/TaskBody";
 import TaskFooter from "./task/TaskFooter";
+import ReactToastify from "./Shared/ReactToastify";
 
 // Redux
 import { useDispatch, useSelector } from "react-redux";
@@ -25,6 +26,7 @@ const Landing = () => {
 
   const [ minHeight, setMinHeight ] = useState(visualViewport.height + "px");
 
+  // To aviod scrolling in opera browser
   window.addEventListener("resize", () => {
     setMinHeight(visualViewport.height + "px");
   });
@@ -47,13 +49,15 @@ const Landing = () => {
       }
     >
       <div className="text-white max-w-2xl mx-auto px-6 pt-4">
+        <ReactToastify />
+
         <Header />
-        {/* Timer */}
+
         <div>
           <TimeLine />
           <Timer />
         </div>
-        {/* Task */}
+
         <div className="max-w-lg mx-auto px-3">
           <TaskHeader />
           <TaskBody />

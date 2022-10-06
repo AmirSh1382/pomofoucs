@@ -1,24 +1,28 @@
 // Functions
-import { setTaskStateInToLocalStorage, getTaskStateFromLocalStorage,  } from "../../helper/fucntions";
+import { getTaskStateFromLocalStorage } from "../../helper/fucntions";
 import { setTaskActive, changeFinishedStatus, checkAllTasks } from "../../helper/fucntions";
-import { clearFinishedTasks, clearAllTasks } from "../../helper/fucntions"
+import { clearFinishedTasks, clearAllTasks, addTask, deleteTask } from "../../helper/fucntions"
 
 const initialState = {
   tasks: [],
+  isFormOpen: false,
+  isNoteInputOpen: false
 };
 
 const taskReducer = (state = initialState, action) => {
+
   const { type, payload } = action;
 
   switch (type) {
     case "ADD_TASK":
-      const updatedState = {
-        ...state,
-        tasks: [...state.tasks, payload],
-      }
       return {
-        ...setTaskStateInToLocalStorage(updatedState)
+        ...addTask(state, payload)
       };
+
+    case "DELETE_TASK":
+      return {
+        ...deleteTask(state, payload)
+      }
 
     case "GET_TASK_STATE_FROM_LOCAL_STORAGE":
       return {
@@ -48,6 +52,13 @@ const taskReducer = (state = initialState, action) => {
     case "CLEAR_ALL_TASKS":
       return {
         ...clearAllTasks(state)
+      }
+
+    case "CHANGE_FORM_STATUS": 
+      return {
+        ...state,
+        isFormOpen: payload.formStatus,
+        isNoteInputOpen: payload.noteInputStatus
       }
 
     default:

@@ -10,6 +10,9 @@ import { secondToMinute, inputValidation } from "../../helper/fucntions";
 import { useDispatch, useSelector } from "react-redux";
 import { setNewSetting } from "../../redux/timer/timerAction";
 
+// React-toastify
+import { toast } from "react-toastify";
+
 const Setting = () => {
   const dispatch = useDispatch();
 
@@ -64,6 +67,8 @@ const Setting = () => {
 
         setError("");
         setIsSettingOpen(false);
+        toast.success("Setting updated")
+
         dispatch(setNewSetting(pomodoroValue, shortBreakValue, longBreakValue, alarmSelectValue, darkModeValue));
       }
     }
@@ -75,8 +80,8 @@ const Setting = () => {
         onClick={() => setIsSettingOpen(true)}
         className="bg-primary rounded transition active:translate-y-1 px-2 py-1"
       >
-        <i className="bi bi-gear sm:mr-1"></i>
-        <span className="hidden sm:inline">Setting</span>
+        <i className="bi bi-gear"></i>
+        <span className="hidden sm:inline ml-1">Setting</span>
       </button>
 
       {/* Setting Wrapper */}
