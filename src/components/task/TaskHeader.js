@@ -53,9 +53,13 @@ const TaskHeader = () => {
 
   return (
     <div className="text-center text-lg mt-8">
-      <div>#{tasks.length}</div>
+      <div>
+        #{tasks.length}
+      </div>
 
-      <div>{detectSelectedTask(tasks)}</div>
+      <div className="text-ellipsis overflow-hidden">
+        {detectSelectedTask(tasks)}
+      </div>
 
       <div className="flex relative items-center justify-between pb-3 pt-1 border-b-2 dark:invisible">
         <span>Tasks</span>

@@ -65,14 +65,20 @@ const Task = (props) => {
             bi bi-check-circle-fill transition-colors duration-500 text-xl`}
         ></i>
 
-        <div className="grow overflow-hidden">{title}</div>
+        <div className="grow overflow-hidden text-ellipsis">{title}</div>
 
         {time && <span className="text-muted">{time}min</span>}
 
         <i ref={editIconRef} className="bi bi-pencil-square text-xl"></i>
       </div>
 
-      {note && <div className="bg-amber-50 rounded shadow ml-7 mt-3 p-2">{note}</div>}
+      { 
+        note && (
+          <div className="bg-amber-50 rounded shadow text-ellipsis overflow-hidden ml-7 mt-3 p-2">
+            {note}
+          </div>
+        )
+      }
     </div>
   );
 };
