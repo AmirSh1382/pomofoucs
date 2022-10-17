@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useRef } from "react";
 
 // Redux
 import { useSelector, useDispatch } from "react-redux";
-import { changeFormStatus, addTaskAction } from "../../redux/task/taskActions";
+import { changeFormStatus, addTaskAction, changeFormStatus } from "../../redux/task/taskActions";
 
 // UUID
 import { v4 as uuidv4 } from "uuid";
@@ -11,7 +11,7 @@ import { v4 as uuidv4 } from "uuid";
 import { toast } from "react-toastify";
 
 const AddTaskForm = (props) => {
-  const {taskValue, setTaskValue, timeValue, setTimeValue, noteValue, setNoteValue } = props;
+  const { taskValue, setTaskValue, timeValue, setTimeValue, noteValue, setNoteValue } = props;
   const { taskInputRef, containerRef } = props
 
   const dispatch = useDispatch();
@@ -21,6 +21,8 @@ const AddTaskForm = (props) => {
 
   const taskState = useSelector(state => state.taskState);
   const { isFormOpen, isNoteInputOpen } = taskState;
+
+  const noteInputRef = useRef()
 
   // To reset form inputs
   const resetFormInputs = () => {
@@ -99,7 +101,7 @@ const AddTaskForm = (props) => {
           </div>
 
           <div
-            onClick={() => dispatch({type: "CHANGE_FORM_STATUS",payload: { formStatus: true, noteInputStatus: true }})}
+            onClick={() => {dispatch(changeFormStatus(true, true)); noteInputRef.current.focus()}}
             className={`
               ${activeTimer === "pomodoro" && "text-pomodoro"}
               ${activeTimer === "shortBreak" && "text-shortBreak"}
@@ -121,6 +123,7 @@ const AddTaskForm = (props) => {
             </div>
 
             <textarea
+              ref={noteInputRef}
               value={noteValue}
               onChange={e => setNoteValue(e.target.value)}
               className="w-full border border-zinc-400 focus:outline-none rounded mt-1 p-1"

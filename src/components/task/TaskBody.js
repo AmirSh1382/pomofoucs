@@ -19,9 +19,9 @@ const TaskBody = () => {
   const [timeValue, setTimeValue] = useState("");
   const [noteValue, setNoteValue] = useState("");
 
+  const taskFormRef = useRef();
   const taskInputRef = useRef();
-  const taskFormRef = useRef()
-  const containerRef = useRef()
+  const containerRef = useRef();
 
   const openTaskForm = () => {
     dispatch(changeFormStatus(true, false))
@@ -30,7 +30,7 @@ const TaskBody = () => {
     setTimeout(() => {
       taskFormRef.current.scrollIntoView({behavior: "smooth"})
     }, 50)
-  }
+  };
 
   useEffect(() => {
     dispatch(getTaskStateFromLocalStorage());
