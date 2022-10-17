@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 
 // Redux
 import { useSelector, useDispatch } from "react-redux";
-import { changeFormStatus, addTaskAction, changeFormStatus } from "../../redux/task/taskActions";
+import { changeFormStatus, addTaskAction } from "../../redux/task/taskActions";
 
 // UUID
 import { v4 as uuidv4 } from "uuid";
