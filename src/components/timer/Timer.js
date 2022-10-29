@@ -4,7 +4,7 @@ import React, { useEffect, useRef } from "react";
 import { clockFormatGenerator } from "../../helper/fucntions";
 
 // styles
-import styles from "./Timer.module.css";
+import styles from "../../styles/modules/timer.module.scss";
 
 // Redux
 import { useSelector, useDispatch } from "react-redux";

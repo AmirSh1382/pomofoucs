@@ -1,0 +1,28 @@
+@import "mixins";
+
+$backgroundColor: #f5f5f5;
+
+.btnContainer {
+    height: 55px;
+
+    @include flex (center, flex-end);
+}
+
+.button {
+    width: 40%;
+    height: 100%;
+    margin: 0 auto;
+    font-size: 27px;
+    position: relative;
+    border-radius: 8px;
+    letter-spacing: 0.5px;
+    background-color: $backgroundColor;
+    transition: 0.5s color;
+
+    @include flex (center, center);
+}
+
+.startBtn {
+    margin-bottom: 5px;
+    box-shadow: 0px 5px $backgroundColor;
+}
