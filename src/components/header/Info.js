@@ -40,7 +40,7 @@ const Info = () => {
             <div className="flex flex-col gap-y-1 text-sm pl-2 mt-1">
               <span>React Js</span>
               <span>Tailwind CSS</span>
-              <span>Pure CSS</span>
+              <span>Sass</span>
               <span>Bootstrap Icons</span>
               <span>React hooks</span>
             </div>
